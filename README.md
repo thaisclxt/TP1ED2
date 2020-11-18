@@ -64,13 +64,13 @@
   - [ ] Adicionar a quantidade de comparações ao buscar cada chave
   - [ ] Calcular a média de comparações para cada um dos conjuntos
 
-![Exemplo de dados produzidos no experimento, assumindo que cada conjunto possui 10 números a serem buscados.](C:\Users\thais\AppData\Roaming\Typora\typora-user-images\image-20201118102659826.png)
+![Exemplo de dados produzidos no experimento, assumindo que cada conjunto possui 10 números a serem buscados.](img1.PNG)
 
 
 
 - [ ] Criar um gráfico comparativo contendo 6 barras referentes aos 3 conjuntos de cada árvore
 
-![Exemplo de comparações efetuadas na busca](C:\Users\thais\AppData\Roaming\Typora\typora-user-images\image-20201118102748139.png)
+![Exemplo de comparações efetuadas na busca](img2.PNG)
 
 
 
