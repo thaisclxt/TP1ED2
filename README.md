@@ -13,7 +13,7 @@
 
 #### Geração de entrada
 
-- [ ] Escolher um valor para o $$ L_{inf} $$ e outro para o $$ L_{sup} $$
+- [ ] Escolher um valor para o <img src="https://render.githubusercontent.com/render/math?math=L_{inf}"> e outro para o <img src="https://render.githubusercontent.com/render/math?math=L_{sup}">
 - [ ] Gerar um conjunto de 10 mil números aleatórios e distintos no intervalo escolhido
 - [ ] Criar um arquivo com nome *input.txt* contendo esses números para ser dado de entrada para o programa
 - [ ] Embaralhar os números
@@ -24,15 +24,15 @@
 
 - [ ] Criar uma ABB
 
-  - [ ] Gerar um conjunto menor (50 itens) composto por números menores que o $$ L_{inf} $$
+  - [ ] Gerar um conjunto menor (50 itens) composto por números menores que o  <img src="https://render.githubusercontent.com/render/math?math=L_{inf}">
 
     - [ ] Computar a quantidade de comparações feitas pela busca
 
-  - [ ] Gerar um conjunto maior (50 itens) composto por números maiores que o  $$ L_{sup} $$
+  - [ ] Gerar um conjunto maior (50 itens) composto por números maiores que o  <img src="https://render.githubusercontent.com/render/math?math=L_{sup}">
 
     - [ ] Computar a quantidade de comparações feitas pela busca
 
-  - [ ] Gerar um conjunto interno (50 itens) composto pelos 50 primeiros números da sequência de entrada gerada no intervalo $$ [L_{inf}, L_{sup}] $$
+  - [ ] Gerar um conjunto interno (50 itens) composto pelos 50 primeiros números da sequência de entrada gerada no intervalo <img src="https://render.githubusercontent.com/render/math?math=[L_{inf}, L_{sup}]">
 
     - [ ] Computar a quantidade de comparações feitas pela busca
 
@@ -40,15 +40,15 @@
 
 - [ ] Criar uma AVL
 
-  - [ ] Gerar um conjunto menor (50 itens) composto por números menores que o $$ L_{inf} $$
+  - [ ] Gerar um conjunto menor (50 itens) composto por números menores que o <img src="https://render.githubusercontent.com/render/math?math=L_{inf}"> 
 
     - [ ] Computar a quantidade de comparações feitas pela busca
 
-  - [ ] Gerar um conjunto maior (50 itens) composto por números maiores que o  $$ L_{sup} $$
+  - [ ] Gerar um conjunto maior (50 itens) composto por números maiores que o  <img src="https://render.githubusercontent.com/render/math?math=L_{sup}"> 
 
     - [ ] Computar a quantidade de comparações feitas pela busca
 
-  - [ ] Gerar um conjunto interno (50 itens) composto pelos 50 primeiros números da sequência de entrada gerada no intervalo $$ [L_{inf}, L_{sup}] $$
+  - [ ] Gerar um conjunto interno (50 itens) composto pelos 50 primeiros números da sequência de entrada gerada no intervalo <img src="https://render.githubusercontent.com/render/math?math=[L_{inf}, L_{sup}]">
 
     - [ ] Computar a quantidade de comparações feitas pela busca
 
@@ -64,13 +64,13 @@
   - [ ] Adicionar a quantidade de comparações ao buscar cada chave
   - [ ] Calcular a média de comparações para cada um dos conjuntos
 
-![Exemplo de dados produzidos no experimento, assumindo que cada conjunto possui 10 números a serem buscados.](img1.PNG)
+![Exemplo de dados produzidos no experimento, assumindo que cada conjunto possui 10 números a serem buscados.](./READMEimg/img1.png)
 
 
 
 - [ ] Criar um gráfico comparativo contendo 6 barras referentes aos 3 conjuntos de cada árvore
 
-![Exemplo de comparações efetuadas na busca](img2.PNG)
+![Exemplo de comparações efetuadas na busca](./READMEimg/img2.png)
 
 
 
