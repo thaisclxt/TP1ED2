@@ -24,11 +24,11 @@
 
 - [ ] Criar uma ABB
 
-  - [ ] Gerar um conjunto menor (50 itens) composto por números menores que o  <img src="https://render.githubusercontent.com/render/math?math=L_{inf}">
+  - [ ] Gerar um conjunto menor (50 itens) composto pelos 50 primeiros números menores que o valor médio do intervalo <img src="https://render.githubusercontent.com/render/math?math=[L_{inf}, L_{sup}]">
 
     - [ ] Computar a quantidade de comparações feitas pela busca
 
-  - [ ] Gerar um conjunto maior (50 itens) composto por números maiores que o  <img src="https://render.githubusercontent.com/render/math?math=L_{sup}">
+  - [ ] Gerar um conjunto maior (50 itens) composto pelos 50 primeiros números maiores que o valor médio do intervalo <img src="https://render.githubusercontent.com/render/math?math=[L_{inf}, L_{sup}]">
 
     - [ ] Computar a quantidade de comparações feitas pela busca
 
@@ -40,11 +40,11 @@
 
 - [ ] Criar uma AVL
 
-  - [ ] Gerar um conjunto menor (50 itens) composto por números menores que o <img src="https://render.githubusercontent.com/render/math?math=L_{inf}"> 
+  - [ ] Gerar um conjunto menor (50 itens) composto pelos 50 primeiros números menores que o valor médio do intervalo <img src="https://render.githubusercontent.com/render/math?math=[L_{inf}, L_{sup}]"> 
 
     - [ ] Computar a quantidade de comparações feitas pela busca
 
-  - [ ] Gerar um conjunto maior (50 itens) composto por números maiores que o  <img src="https://render.githubusercontent.com/render/math?math=L_{sup}"> 
+  - [ ] Gerar um conjunto maior (50 itens) composto pelos 50 primeiros números maiores que o valor médio do intervalo <img src="https://render.githubusercontent.com/render/math?math=[L_{inf}, L_{sup}]"> 
 
     - [ ] Computar a quantidade de comparações feitas pela busca
 
