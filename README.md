@@ -32,7 +32,7 @@
 
     - [ ] Computar a quantidade de comparações feitas pela busca
 
-  - [ ] Gerar um conjunto interno (50 itens) composto pelos 50 primeiros números da sequência de entrada gerada no intervalo <img src="https://render.githubusercontent.com/render/math?math=[L_{inf}, L_{sup}]">
+  - [ ] Gerar um conjunto interno (50 itens) composto pelos 25 primeiros números e os 25 últimos números da sequência de entrada gerada no intervalo <img src="https://render.githubusercontent.com/render/math?math=[L_{inf}, L_{sup}]">
 
     - [ ] Computar a quantidade de comparações feitas pela busca
 
