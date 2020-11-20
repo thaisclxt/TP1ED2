@@ -32,3 +32,7 @@ print("╚═══════════════════════�
 linf, lsup = setLimits(int(input()))
 
 print("\nSeu intervalo é [%d, %d]" %(linf, lsup))
+
+group = [x for x in range(linf, lsup + 1)]
+
+print(group)
