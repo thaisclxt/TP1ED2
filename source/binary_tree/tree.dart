@@ -3,12 +3,17 @@ import 'node.dart';
 
 class Tree {
   Node _root;
+  int _comparisons;
+
+  int get comparisons => _comparisons;
 
   Tree() {
     this._root = null;
   }
 
   void add(int value) {
+    if (search(value)[0]) return;
+
     _root = _add(value, _root);
   }
 
@@ -68,6 +73,22 @@ class Tree {
       return node;
     }
     return _min(node.left);
+  }
+
+  List search(int value) {
+    _comparisons = 0;
+    return [_search(value, _root), _comparisons];
+  }
+
+  bool _search(int value, Node node) {
+    _comparisons++;
+
+    if (node == null) return false;
+
+    if (node.value == value) return true;
+
+    if (node.value > value) return _search(value, node.left);
+    return _search(value, node.right);
   }
 
   void inOrder() {

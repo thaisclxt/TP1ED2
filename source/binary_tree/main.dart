@@ -13,4 +13,8 @@ main() {
   tree.preOrder();
   tree.remove(18);
   tree.preOrder();
+  print(tree.search(19));
+  print(tree.search(8));
+  tree.add(19);
+  tree.preOrder();
 }
