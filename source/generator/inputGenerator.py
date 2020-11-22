@@ -4,31 +4,52 @@ def setOperatorLimits(limit, operator):
 def randomLimits():
     return int(str(random.random())[2:6])
 
-def setLimits(option):
-    if option == 1 or option == 3:
-        linf = int(input("Por favor, insira o limite inferior: ")) if option == 1 else randomLimits()
+def setLimits():
+    size = len(sys.argv)
+
+    if size == 3:
+        args = sys.argv[1]
+        limit = int(sys.argv[2])
+
+        if args == "li":
+            linf = limit
+            lsup = setOperatorLimits(linf, '+')
+        else:
+            lsup = limit
+            linf = setOperatorLimits(lsup, '-')
+
+    elif size == 1:
+        linf = randomLimits()
         lsup = setOperatorLimits(linf, '+')
-
+        
     else:
-        lsup = int(input("Por favor, insira o limite superior: ")) if option == 2 else randomLimits()
-        linf = setOperatorLimits(lsup, '-')
-
+        print("╔═══════════════════════════════════════════════════════════════╗")
+        print("║                           ATENÇÃO                             ║")
+        print("║                                                               ║")
+        print("║ Para executar este arquivo de forma correta é necessário que  ║")
+        print("║ você escreva no terminal:                                     ║")
+        print("║                                                               ║")
+        print("║    py inputGenerator.py args1 args2                           ║")
+        print("║                                                               ║")
+        print("║ Tal que, args1 deve ser \"li\" para limite inferior ou \"ls\"     ║")
+        print("║ para limite superior e args2 deve ser o número em inteiro que ║")
+        print("║ você deseja definir para o limite escolhido. Por exemplo:     ║")
+        print("║                                                               ║")
+        print("║    py inputGenerator.py ls 501                                ║")
+        print("║    py inputGenerator.py li 8888                               ║")
+        print("║                                                               ║")
+        print("║ Caso queira que o sistema defina os limites, basta:           ║")
+        print("║                                                               ║")
+        print("║    py inputGenerator.py                                       ║")
+        print("║                                                               ║")
+        print("╚═══════════════════════════════════════════════════════════════╝\n")
+        exit()
     return linf, lsup
 
 import random
+import sys
 
-print("╔════════════════════════════════════════════════╗")
-print("║                      MENU                      ║")
-print("║                                                ║")
-print("║ Escolha uma opção:                             ║")
-print("║ 1- Inserir apenas o limite inferior            ║")
-print("║ 2- Inserir apenas o limite superior            ║")
-print("║ 3- Deixar o sistema escolher o limite inferior ║")
-print("║ 4- Deixar o sistema escolher o limite superior ║")
-print("║                                                ║")
-print("╚════════════════════════════════════════════════╝\n")
-
-linf, lsup = setLimits(int(input()))
+linf, lsup = setLimits()
 
 print("\nSeu intervalo é [%d, %d]" %(linf, lsup))
 
@@ -40,7 +61,6 @@ random.shuffle(group)
 
 # Converte o conjunto para ser dado de entrada para o arquivo input.txt
 data = " ".join(group)
-print(data)
 
 # Abre o arquivo input.txt e cria se ainda não existir para leitura e ecrita
 file = open("input.txt", "w+")
