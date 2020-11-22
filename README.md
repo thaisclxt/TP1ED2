@@ -7,22 +7,22 @@
 
 #### Linguagem de Programação
 
-- [ ] Escolher a linguagem de programação
+- [x] Escolher a linguagem de programação
 
   
 
 #### Geração de entrada
 
-- [ ] Escolher um valor para o <img src="https://render.githubusercontent.com/render/math?math=L_{inf}"> e outro para o <img src="https://render.githubusercontent.com/render/math?math=L_{sup}">
-- [ ] Gerar um conjunto de 10 mil números aleatórios e distintos no intervalo escolhido
-- [ ] Criar um arquivo com nome *input.txt* contendo esses números para ser dado de entrada para o programa
-- [ ] Embaralhar os números
+- [x] Escolher um valor para o <img src="https://render.githubusercontent.com/render/math?math=L_{inf}"> e outro para o <img src="https://render.githubusercontent.com/render/math?math=L_{sup}">
+- [x] Gerar um conjunto de 10 mil números aleatórios e distintos no intervalo escolhido
+- [x] Criar um arquivo com nome *input.txt* contendo esses números para ser dado de entrada para o programa
+- [x] Embaralhar os números
 
 
 
 #### Experimento
 
-- [ ] Criar uma ABB
+- [x] Criar uma ABB
 
   - [ ] Gerar um conjunto menor (50 itens) composto pelos 50 primeiros números menores que o valor médio do intervalo <img src="https://render.githubusercontent.com/render/math?math=[L_{inf}, L_{sup}]">
 

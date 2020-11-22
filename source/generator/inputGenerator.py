@@ -15,7 +15,6 @@ def setLimits(option):
 
     return linf, lsup
 
-
 import random
 
 print("╔════════════════════════════════════════════════╗")
@@ -33,6 +32,21 @@ linf, lsup = setLimits(int(input()))
 
 print("\nSeu intervalo é [%d, %d]" %(linf, lsup))
 
-group = [x for x in range(linf, lsup + 1)]
+# Cria o conjunto de 10 mil números
+group = [str(x) for x in range(linf, lsup + 1)]
 
-print(group)
+# Embaralha o conjunto
+random.shuffle(group)
+
+# Converte o conjunto para ser dado de entrada para o arquivo input.txt
+data = " ".join(group)
+print(data)
+
+# Abre o arquivo input.txt e cria se ainda não existir para leitura e ecrita
+file = open("input.txt", "w+")
+
+# Escreve os números no arquivo
+file.write(data)
+
+# Fecha o arquivo
+file.close
