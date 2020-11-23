@@ -45,6 +45,51 @@ def setLimits():
         print("╚═══════════════════════════════════════════════════════════════╝\n")
         exit()
     return linf, lsup
+    
+def principalGroup(linf, lsup):
+    return [x for x in range(linf, lsup + 1)]
+
+def calculatesMedia(linf, lsup):
+    media = (linf + lsup) // 2
+    print("A média entre o limite inferior e o limite superior é ", media)
+    return media
+
+
+def group1and2(group, media):
+    smallerGroup, largerGroup = [], []
+    cont1, cont2 = 0, 0
+    for x in group:
+        if x <= media and cont1 < 50:
+            smallerGroup.append(x)
+            cont1 += 1
+
+        elif x >= media and cont2 < 50:
+            largerGroup.append(x)
+            cont2 += 1
+    
+    
+    print(len(smallerGroup))
+    print(smallerGroup)
+
+    print(len(largerGroup))
+    print(largerGroup)
+
+    return smallerGroup, largerGroup
+
+def convertToStr(*group):
+    # Transforma os números em str
+    for g in group:
+        data = [str(x) for x in group]
+
+    # Separa os números com um espaço entre eles
+    return " ".join(data)
+
+def txt(file, data):
+    # Escreve os números no arquivo
+    file.write(data)
+
+    # Fecha o arquivo
+    file.close
 
 import random
 import sys
@@ -53,20 +98,20 @@ linf, lsup = setLimits()
 
 print("\nSeu intervalo é [%d, %d]" %(linf, lsup))
 
-# Cria o conjunto de 10 mil números
-group = [str(x) for x in range(linf, lsup + 1)]
+# Cria o conjunto de 10 mil números inteiros
+group = principalGroup(linf, lsup)
 
 # Embaralha o conjunto
 random.shuffle(group)
 
-# Converte o conjunto para ser dado de entrada para o arquivo input.txt
-data = " ".join(group)
+# Calcula a média do limite inferior e superior
+media = calculatesMedia(linf, lsup)
 
-# Abre o arquivo input.txt e cria se ainda não existir para leitura e ecrita
-file = open("input.txt", "w+")
+# Cria o conjunto menor e o conjunto maior
+smallerGroup, largerGroup = group1and2(group, media)
 
-# Escreve os números no arquivo
-file.write(data)
+# Abre o arquivo input.txt e cria se ainda não existir para leitura e ecrita e escreve os dados
+txt(open("input.txt", "w+"), convertToStr(group))
 
-# Fecha o arquivo
-file.close
+# Abre o arquivo search.txt e cria se ainda não existir para leitura e ecrita e escreve os dados
+txt(open("search.txt", "w+"), convertToStr(smallerGroup, largerGroup))
