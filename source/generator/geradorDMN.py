@@ -51,12 +51,12 @@ class Group:
             exit()
 
     def generateNumbers(self):
-        self.group = [x for x in range(self.linf, self.lsup + 1)]
+        self.generatedNumbers = [x for x in range(self.linf, self.lsup + 1)]
     
     def calculateMedia(self):
         self.media = (self.linf + self.lsup) // 2
 
     def shuffleNumber(self):
-        random.shuffle(self.group)
+        random.shuffle(self.generatedNumbers)
 
 import random
