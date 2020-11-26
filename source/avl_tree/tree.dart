@@ -37,7 +37,6 @@ class Tree {
             _needsBalance = false;
             break;
           case -1:
-            node.balance = -2;
             node = _rebalanceLeft(node);
             break;
           default:
@@ -51,7 +50,6 @@ class Tree {
       if (_needsBalance) {
         switch (node.balance) {
           case 1:
-            node.balance = 2;
             node = _rebalanceRight(node);
             break;
           case -1:
@@ -96,7 +94,7 @@ class Tree {
 
           break;
         case 1:
-          leftChild.balance = 1;
+          leftChild.balance = -1;
           node.balance = 0;
 
           break;
