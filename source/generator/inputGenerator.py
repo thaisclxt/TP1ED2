@@ -1,9 +1,12 @@
-def convertToStr(*group):
+def convertToStr(*args):
     data = []
-    for g in group:
-        data += [str(x) + " " for x in g]
-        data += "\n"
-        
+    for group in args:
+        for element in group:
+            data.append(str(element))
+            data.append(" ")
+        data.pop()
+        data.append("\n")
+
     return "".join(data)
 
 def txt(file, data):
@@ -14,13 +17,13 @@ import geradorDMN as dmn
 import geradorS as s
 import sys
 
-g = dmn.Group(sys.argv)
+group = dmn.Group(sys.argv)
 
-innerGroup = s.innerGroup(g.group)
+innerGroup = s.innerGroup(group.generatedNumbers)
 
-g.shuffleNumber()
-txt(open("input.txt", "w+"), convertToStr(g.group))
+group.shuffleNumber()
+txt(open("input.txt", "w+"), convertToStr(group.generatedNumbers))
 
-underAverageGroup = s.underAverageGroup(g.group, g.media)
-overAverageGroup = s.overAverageGroup(g.group, g.media)
+underAverageGroup = s.underAverageGroup(group.generatedNumbers, group.media)
+overAverageGroup = s.overAverageGroup(group.generatedNumbers, group.media)
 txt(open("search.txt", "w+"), convertToStr(underAverageGroup, overAverageGroup, innerGroup))
