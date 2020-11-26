@@ -12,8 +12,6 @@ class Tree {
   }
 
   void add(int value) {
-    if (search(value)[0]) return;
-
     _root = _add(value, _root);
   }
 
@@ -22,11 +20,13 @@ class Tree {
       return Node(value);
     }
 
-    if (value < node.value) {
-      node.left = _add(value, node.left);
+    if (value == node.value) {
+      return node;
     }
 
-    if (value > node.value) {
+    if (value < node.value) {
+      node.left = _add(value, node.left);
+    } else if (value > node.value) {
       node.right = _add(value, node.right);
     }
 
