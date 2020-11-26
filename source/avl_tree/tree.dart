@@ -2,83 +2,167 @@ import 'dart:io';
 import 'node.dart';
 
 class Tree {
-  Node root;
+  Node _root;
   int _comparisons;
+  bool _needsBalance;
 
   int get comparisons => _comparisons;
 
   Tree() {
-    this.root = null;
+    this._root = null;
   }
 
   void add(int value) {
-    if (search(value)[0]) return;
-
-    root = _add(value, root, null);
+    _needsBalance = false;
+    _root = _add(value, _root);
   }
 
-  Node _add(int value, Node node, Node parent) {
+  Node _add(int value, Node node) {
     if (node == null) {
-      return Node(value, parent);
+      _needsBalance = true;
+      return Node(value);
+    }
+
+    if (value == node.value) {
+      return node;
     }
 
     if (value < node.value) {
-      node.left = _add(value, node.left, node);
-    }
+      node.left = _add(value, node.left);
 
-    if (value > node.value) {
-      node.right = _add(value, node.right, node);
+      if (_needsBalance) {
+        switch (node.balance) {
+          case 1:
+            node.balance = 0;
+            _needsBalance = false;
+            break;
+          case -1:
+            node.balance = -2;
+            node = _rebalanceLeft(node);
+            break;
+          default:
+            node.balance = -1;
+            break;
+        }
+      }
+    } else if (value > node.value) {
+      node.right = _add(value, node.right);
+
+      if (_needsBalance) {
+        switch (node.balance) {
+          case 1:
+            node.balance = 2;
+            node = _rebalanceRight(node);
+            break;
+          case -1:
+            node.balance = 0;
+            _needsBalance = false;
+            break;
+          default:
+            node.balance = 1;
+            break;
+        }
+      }
     }
 
     return node;
   }
 
-  void remove(int value) {
-    root = _remove(value, root, null);
-  }
+  Node _rebalanceLeft(Node node) {
+    var leftChild = node.left;
 
-  Node _remove(int value, Node node, Node parent) {
-    if (node == null) return null;
+    if (leftChild.balance == -1) {
+      node.left = leftChild.right;
+      leftChild.right = node;
 
-    if (value != node.value) {
-      if (value < node.value) {
-        node.left = _remove(value, node.left, node);
-      }
+      node.balance = 0;
+      leftChild.balance = 0;
+      _needsBalance = false;
 
-      if (value > node.value) {
-        node.right = _remove(value, node.right, node);
-      }
+      return leftChild;
     } else {
-      if (node.isLeaf) {
-        return null;
+      var grandChild = leftChild.right;
+
+      leftChild.right = grandChild.left;
+      grandChild.left = leftChild;
+
+      node.left = grandChild.right;
+      grandChild.right = node;
+
+      switch (grandChild.balance) {
+        case -1:
+          node.balance = 1;
+          leftChild.balance = 0;
+
+          break;
+        case 1:
+          leftChild.balance = 1;
+          node.balance = 0;
+
+          break;
+        default:
+          node.balance = 0;
+          leftChild.balance = 0;
+
+          break;
       }
 
-      if (node.isFull) {
-        var newNode = _min(node.right);
-        node.right = _remove(newNode.value, node.right, node);
-        newNode.left = node.left;
-        newNode.right = node.right;
-        newNode.parent = node.parent;
-        return newNode;
-      }
+      grandChild.balance = 0;
+      _needsBalance = false;
 
-      if (node.left != null) return node.left;
-      return node.right;
+      return grandChild;
     }
-
-    return node;
   }
 
-  Node _min(Node node) {
-    if (node.left == null) {
-      return node;
+  Node _rebalanceRight(Node node) {
+    var rightChild = node.right;
+
+    if (rightChild.balance == 1) {
+      node.right = rightChild.left;
+      rightChild.left = node;
+
+      node.balance = 0;
+      rightChild.balance = 0;
+      _needsBalance = false;
+
+      return rightChild;
+    } else {
+      var grandChild = rightChild.left;
+
+      rightChild.left = grandChild.right;
+      grandChild.right = rightChild;
+
+      node.right = grandChild.left;
+      grandChild.left = node;
+
+      switch (grandChild.balance) {
+        case 1:
+          node.balance = -1;
+          rightChild.balance = 0;
+
+          break;
+        case -1:
+          rightChild.balance = 1;
+          node.balance = 0;
+
+          break;
+        default:
+          node.balance = 0;
+          rightChild.balance = 0;
+
+          break;
+      }
+
+      grandChild.balance = 0;
+      _needsBalance = false;
+
+      return grandChild;
     }
-    return _min(node.left);
   }
 
   List search(int value) {
     _comparisons = 0;
-    return [_search(value, root), _comparisons];
+    return [_search(value, _root), _comparisons];
   }
 
   bool _search(int value, Node node) {
@@ -93,7 +177,7 @@ class Tree {
   }
 
   void inOrder() {
-    _inOrder(root);
+    _inOrder(_root);
     print("");
   }
 
@@ -105,7 +189,7 @@ class Tree {
   }
 
   void preOrder() {
-    _preOrder(root);
+    _preOrder(_root);
     print("");
   }
 

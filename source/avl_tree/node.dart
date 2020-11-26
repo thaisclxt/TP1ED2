@@ -1,10 +1,12 @@
 class Node {
   int value;
-  Node parent;
+  int balance;
   Node left;
   Node right;
 
-  Node(this.value, this.parent, {this.left = null, this.right = null});
+  Node(this.value, {this.left = null, this.right = null}) {
+    balance = 0;
+  }
 
   @override
   String toString() => this.value.toString();
